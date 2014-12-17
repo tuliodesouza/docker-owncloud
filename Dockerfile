@@ -5,8 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD run.sh /run.sh
 
-RUN apt-key add - < /tmp/owncloud.list.key && \
-	apt-get update && \
+RUN apt-get update && \
 	apt-get install -y nginx sqlite php5-gd php5-json php5-curl php5-intl php5-mcrypt php5-fpm php5-apcu php5-sqlite wget && \
 	cd /tmp && \
 	wget https://download.owncloud.org/community/owncloud-7.0.4.tar.bz2 && \
