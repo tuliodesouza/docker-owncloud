@@ -8,8 +8,8 @@ ADD run.sh /run.sh
 RUN apt-get update && \
 	apt-get install -y nginx sqlite php5-gd php5-json php5-curl php5-intl php5-mcrypt php5-fpm php5-apcu php5-sqlite wget && \
 	cd /tmp && \
-	wget https://download.owncloud.org/community/owncloud-7.0.4.tar.bz2 && \
-	tar -xjf /tmp/owncloud-7.0.4.tar.bz2 && \
+	wget https://download.owncloud.org/community/owncloud-8.0.0.tar.bz2 && \
+	tar -xjf /tmp/owncloud-8.0.0.tar.bz2 && \
 	mv /tmp/owncloud /var/www && \
 	chown -R www-data:www-data /var/www && \
 	mkdir -p /usr/local/nginx/conf && \
