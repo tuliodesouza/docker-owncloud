@@ -8,8 +8,8 @@ ADD run.sh /run.sh
 RUN apt-get update && \
 	apt-get install -y nginx sqlite php5-gd php5-json git php5-curl php5-intl php5-mcrypt php5-fpm php5-apcu php5-sqlite wget && \
 	cd /tmp && \
-	wget https://download.owncloud.org/community/owncloud-8.0.0.tar.bz2 && \
-	tar -xjf /tmp/owncloud-8.0.0.tar.bz2 && \
+	wget https://download.owncloud.org/community/owncloud-8.0.2.tar.bz2 && \
+	tar -xjf /tmp/owncloud-8.0.2.tar.bz2 && \
 	mv /tmp/owncloud /var/www && \
 	git clone https://github.com/owncloud/notes.git /var/www/apps/notes && \
 	chown -R www-data:www-data /var/www && \
@@ -23,6 +23,8 @@ RUN apt-get update && \
 
 ADD owncloud.conf /etc/nginx/conf.d/owncloud.conf
 ADD 30-owncloud.ini /etc/php5/fpm/conf.d/30-owncloud.ini
+
+Volume /var/www/apps
 
 EXPOSE 32003
 
