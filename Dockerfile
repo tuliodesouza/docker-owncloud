@@ -5,11 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD run.sh /run.sh
 
-RUN apt-get update && \
+RUN apt-get update && apt-get -y upgrade \
 	apt-get install -y nginx sqlite php5-gd php5-json git php5-curl php5-intl php5-mcrypt php5-fpm php5-apcu php5-sqlite wget && \
 	cd /tmp && \
-	wget https://download.owncloud.org/community/owncloud-8.0.4.tar.bz2 && \
-	tar -xjf /tmp/owncloud-8.0.4.tar.bz2 && \
+	wget https://download.owncloud.org/community/owncloud-8.1.1.tar.bz2 && \
+	tar -xjf /tmp/owncloud-8.1.1.tar.bz2 && \
 	mv /tmp/owncloud /var/www && \
 	git clone https://github.com/owncloud/notes.git /var/www/apps/notes && \
 	chown -R www-data:www-data /var/www && \
@@ -27,6 +27,6 @@ ADD 30-owncloud.ini /etc/php5/fpm/conf.d/30-owncloud.ini
 Volume /var/www/apps
 Volume /var/log
 
-EXPOSE 32003
+EXPOSE 443
 
 CMD ["/run.sh"]
