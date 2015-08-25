@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y upgrade && \
 	cd /tmp && \
 	wget https://download.owncloud.org/community/owncloud-8.1.1.tar.bz2 && \
 	tar -xjf /tmp/owncloud-8.1.1.tar.bz2 && \
-	mv /tmp/owncloud/* /var/www && \
+	mv /tmp/owncloud /var/www/. && \
 	git clone https://github.com/owncloud/notes.git /var/www/apps/notes && \
 	chown -R www-data:www-data /var/www && \
 	mkdir -p /usr/local/nginx/conf && \
